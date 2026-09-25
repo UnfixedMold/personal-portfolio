@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=$(jq -r '.tool_input.file_path'); case \"${f#$CLAUDE_PROJECT_DIR/}\" in /*|node_modules/*|.next/*|openspec/*|.claude/*|.devcontainer/*|.github/*) exit 0;; esac; [ -f \"$CLAUDE_PROJECT_DIR/package.json\" ] || exit 0; cd \"$CLAUDE_PROJECT_DIR\" && pnpm exec prettier --write --ignore-unknown \"$f\" && pnpm exec eslint --no-warn-ignored \"$f\" >&2 || exit 2"
+          }
+        ]
+      }
+    ]
+  }
+}

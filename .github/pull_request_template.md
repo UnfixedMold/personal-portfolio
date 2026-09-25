@@ -1,0 +1,15 @@
+## What and why
+
+<!-- One paragraph: the change and the reason. Name the OpenSpec change when there is one. -->
+
+## Changes
+
+<!-- Bold group labels such as Rules, Tests, Tooling, each with one-fact bullets, in the order a reviewer should read them. -->
+
+## Risk: 🟢 Low
+
+<!-- Level in the heading: 🟢 Low, 🟡 Medium or 🔴 High. Then bold labels Breaks, Undo and Open findings, each with one-fact bullets, or None. -->
+
+## Remaining work
+
+<!-- Tasks that can only be ticked after this PR is reviewed or merged, or None. -->

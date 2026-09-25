@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+.claude/settings.local.json
+.DS_Store
+.pnpm-store/
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+.tmp/
+test-results/
+playwright-report/
