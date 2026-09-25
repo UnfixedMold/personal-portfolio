@@ -17,6 +17,9 @@
     "ghcr.io/devcontainers/features/node:1": {
       "version": "26.10.0"
     },
+    "ghcr.io/schlich/devcontainer-features/playwright:0": {
+      "browsers": "chromium"
+    },
     "ghcr.io/anthropics/devcontainer-features/claude-code:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/jrussellsmyth/devcontainer-features/openspec:1": {}
@@ -33,7 +36,8 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "bradlc.vscode-tailwindcss",
-        "github.vscode-github-actions"
+        "github.vscode-github-actions",
+        "ms-playwright.playwright"
       ]
     }
   },

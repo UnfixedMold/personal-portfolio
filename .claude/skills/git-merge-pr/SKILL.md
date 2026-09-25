@@ -19,16 +19,15 @@ Lands what the owner already accepted. Not diagnostic: when a guard fails it sto
 3. **Clean tree.** `git status --porcelain` prints nothing.
 4. **HEAD equals upstream.** `git rev-parse HEAD` equals `git rev-parse @{u}`. Otherwise `/git-commit-push`.
 5. **The PR is this branch's.** `gh pr view <number or branch> --json number,headRefName,state,mergeable,statusCheckRollup`; `headRefName` must be the current branch and `state` OPEN.
-6. **`Check` is green on HEAD.** In `statusCheckRollup`, the `Check` job has conclusion SUCCESS for the current HEAD sha. Otherwise fix through `/git-commit-push` and a `/git-open-pr` refresh.
-7. **Every review thread answered.** `gh api graphql -f query='{repository(owner:"UnfixedMold",name:"protfolio"){pullRequest(number:<n>){reviewThreads(first:100){nodes{isResolved comments(first:10){nodes{author{login}}}}}}}}'`; every unresolved thread has a reply after its first comment. Otherwise answer or fix, then come back.
-8. **No conflict.** `mergeable` is MERGEABLE. Otherwise merge `main` in through `/git-commit-push`.
+6. **Every review thread answered.** `gh api graphql -f query='{repository(owner:"UnfixedMold",name:"protfolio"){pullRequest(number:<n>){reviewThreads(first:100){nodes{isResolved comments(first:10){nodes{author{login}}}}}}}}'`; every unresolved thread has a reply after its first comment. Otherwise answer or fix, then come back.
+7. **No conflict.** `mergeable` is MERGEABLE. Otherwise merge `main` in through `/git-commit-push`.
 
 ## Merge
 
-9. `gh pr merge <number> --squash --delete-branch`. The squash commit takes the PR title as its subject.
-10. `gh pr view <number> --json state,mergeCommit`. Anything other than MERGED: stop and report the exact output.
-11. `git switch main && git pull --ff-only && git fetch --prune`. Confirm `git log -1 --format=%s` is the PR title.
-12. `git branch -D <branch>` only now. A squash rewrites the commits, so `-d` refuses; the authority for "it merged" is step 10.
+8. `gh pr merge <number> --squash --delete-branch`. The squash commit takes the PR title as its subject.
+9. `gh pr view <number> --json state,mergeCommit`. Anything other than MERGED: stop and report the exact output.
+10. `git switch main && git pull --ff-only && git fetch --prune`. Confirm `git log -1 --format=%s` is the PR title.
+11. `git branch -D <branch>` only now. A squash rewrites the commits, so `-d` refuses; the authority for "it merged" is step 9.
 
 ## Report
 

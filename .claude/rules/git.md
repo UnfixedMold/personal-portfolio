@@ -21,7 +21,7 @@
 
 ## Branches
 
-- `main` moves only by a squash-merged pull request whose `Check` job passed.
+- `main` moves only by a squash-merged pull request.
 - Work happens on a short-lived branch named after the OpenSpec change, deleted after the merge.
 - The pull request title becomes the one commit on `main`.
 

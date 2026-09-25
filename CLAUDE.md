@@ -22,7 +22,7 @@ Personal portfolio site. One pnpm project at the repo root: Next.js App Router w
 
 ## Scripts
 
-- `dev`, `build`, `lint`, `format`, `typecheck`, `test`, `test:e2e`. CI runs format, lint, typecheck, test and build.
+- `dev`, `build`, `lint`, `format`, `typecheck`, `test`, `test:e2e`.
 - `prepare` runs `git config core.hooksPath .githooks`, so `pnpm i` wires the hooks.
 - Every edit is formatted and linted by the hook in `.claude/settings.json`.
 
