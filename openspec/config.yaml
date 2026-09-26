@@ -1,0 +1,22 @@
+schema: spec-driven
+
+context: |
+  Personal portfolio site: Next.js App Router, shadcn/ui, Vitest, Playwright, pnpm.
+  Read CLAUDE.md and .claude/rules/ before writing any artifact.
+  wireframes.html is the design reference until the pages exist.
+
+rules:
+  proposal:
+    - 'Follow .claude/rules/writing.md: one idea per sentence, bullets over prose.'
+    - Name the branch after the change.
+  tasks:
+    - One task is one commit-sized step with its test.
+    - Reuse an existing component, helper or library before writing code.
+
+operations:
+  apply:
+    guidance:
+      - 'Stop at "ready to review". Never commit or push on your own.'
+  archive:
+    guidance:
+      - Archive only after the pull request is squash-merged into main.
