@@ -3,7 +3,5 @@ services:
     image: node:26.10.0
     init: true
     command: sleep infinity
-    environment:
-      NODE_ENV: development
     ports:
       - "127.0.0.1:${FRONT_PORT:-3000}:3000"
