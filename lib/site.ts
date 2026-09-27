@@ -1,6 +1,23 @@
 export const site = {
-  name: 'Henrikas Girdzijauskas',
+  name: 'Henrikas Antanas Girdzijauskas',
+  shortName: 'Henrikas',
+  mark: 'h',
+  city: 'Vilnius',
   description:
-    'Henrikas Girdzijauskas builds web apps, AI apps and ML models end to end, from the first document to production.',
+    'Henrikas Antanas Girdzijauskas builds web apps, AI apps and ML models end to end, from the first document to production.',
   url: 'https://girdzijauskas.lt',
+  email: 'hello@girdzijauskas.lt',
+  phone: { display: '+370 69873251', href: 'tel:+37069873251' },
+  linkedIn:
+    'https://www.linkedin.com/in/henrikas-antanas-girdzijauskas-ab9b0413a/',
+  callToAction: 'Book a call',
+  nav: [
+    { label: 'Services', href: '#services' },
+    { label: 'Experience', href: '#experience' },
+    { label: 'Projects', href: '#work' },
+  ],
+  themeColor: '#fbfaff',
+  backgroundColor: '#fbfaff',
 }
+
+export type Site = typeof site
