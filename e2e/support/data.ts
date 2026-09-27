@@ -1,2 +1,25 @@
-export const siteName = 'Henrikas Girdzijauskas'
+export const siteName = 'Henrikas Antanas Girdzijauskas'
+export const shortName = 'Henrikas'
 export const phoneWidth = 375
+export const desktopWidth = 1280
+export const scrollDistance = 1500
+export const headlineWords = ['web apps', 'AI apps', 'ML models']
+export const wordCycleTimeout = 6000
+export const servicesTitle = 'What I build'
+export const experienceTitle = 'Experience'
+export const newestRole = 'AI Practice Lead'
+export const clickedRole = 'ML/AI Engineer'
+export const keyedRole = 'Machine Learning Engineer'
+export const tappedRole = 'Software Engineer'
+export const projectTitle = 'h2bc store'
+export const projectDomain = 'dev.h2bcweb.com'
+export const validContact = {
+  name: 'Ada Lovelace',
+  email: 'ada@example.test',
+  message: 'A difference engine.',
+}
+export const invalidEmail = 'ada-at-example'
+export const fieldCount = 3
+export const siteUrl = 'https://girdzijauskas.lt'
+export const socialImageSize = { width: '1200', height: '630' }
+export const themeColor = '#fbfaff'

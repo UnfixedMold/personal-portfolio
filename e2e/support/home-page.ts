@@ -3,10 +3,6 @@ import type { Page } from '@playwright/test'
 export class HomePage {
   constructor(private readonly page: Page) {}
 
-  get main() {
-    return this.page.getByRole('main')
-  }
-
   async open() {
     const response = await this.page.goto('/')
 
@@ -27,6 +23,10 @@ export class HomePage {
     )
 
     return overflow
+  }
+
+  async preferReducedMotion() {
+    await this.page.emulateMedia({ reducedMotion: 'reduce' })
   }
 
   async resizeToWidth(width: number) {
