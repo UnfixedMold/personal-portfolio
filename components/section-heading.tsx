@@ -1,12 +1,14 @@
 import { cn } from 'cn'
 
 type SectionHeadingProps = {
+  id?: string
   title: string
   subtitle?: string
   className?: string
 }
 
 export function SectionHeading({
+  id,
   title,
   subtitle,
   className,
@@ -18,7 +20,10 @@ export function SectionHeading({
         className
       )}
     >
-      <h2 className="text-[clamp(28px,3.4vw,40px)] font-extrabold tracking-[-0.03em]">
+      <h2
+        id={id}
+        className="text-[clamp(28px,3.4vw,40px)] font-extrabold tracking-[-0.03em]"
+      >
         {title}
       </h2>
       {subtitle ? <p className="text-muted-foreground">{subtitle}</p> : null}

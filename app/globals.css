@@ -21,6 +21,14 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
   --color-primary-end: var(--primary-end);
+  --color-linkedin: var(--linkedin);
+  --color-heart: var(--heart);
+  --color-gold: var(--gold);
+  --color-gold-end: var(--gold-end);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-silver: var(--silver);
+  --color-silver-end: var(--silver-end);
+  --color-silver-foreground: var(--silver-foreground);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -37,6 +45,9 @@
   --shadow-lift: 0 24px 50px rgb(60 30 140 / 0.14);
   --animate-glow-1: glow-1 14s ease-in-out infinite;
   --animate-glow-2: glow-2 18s ease-in-out infinite;
+  --animate-rise: rise 0.7s ease-out both;
+  --animate-word-cycle: word-cycle 7.8s ease-in-out infinite both;
+  --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
 
   @keyframes glow-1 {
     0%,
@@ -45,6 +56,40 @@
     }
     50% {
       transform: translate(60px, 40px);
+    }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes word-cycle {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+      filter: blur(6px);
+      transform: translateY(40%);
+    }
+    5%,
+    28.33% {
+      opacity: 1;
+      visibility: visible;
+      filter: none;
+      transform: none;
+    }
+    33.33%,
+    100% {
+      opacity: 0;
+      visibility: hidden;
+      filter: blur(6px);
+      transform: translateY(-40%);
     }
   }
 
@@ -80,7 +125,29 @@
   --border: rgb(124 77 255 / 0.1);
   --input: #e6e2f5;
   --ring: #7c4dff;
+  --linkedin: #0a66c2;
+  --heart: #e5243b;
+  --gold: #ffe08a;
+  --gold-end: #f2b53c;
+  --gold-foreground: #5b3a00;
+  --silver: #f4f4f8;
+  --silver-end: #c3c3d0;
+  --silver-foreground: #3a3a4a;
   --radius: 0.75rem;
+}
+
+@utility content-width {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 64px);
+}
+
+@utility gradient-text {
+  background-image: linear-gradient(135deg, var(--primary), var(--primary-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 @utility gradient-primary {
@@ -96,5 +163,10 @@
   }
   html {
     @apply font-sans;
+  }
+  [data-slot='accordion-content'] {
+    --tw-animation-duration: 450ms;
+    --tw-ease: var(--ease-smooth);
+    @apply motion-reduce:animate-none;
   }
 }
