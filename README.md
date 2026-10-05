@@ -1,4 +1,4 @@
-# protfolio
+# Personal portfolio
 
 Personal portfolio site. Next.js with shadcn/ui, changes planned with OpenSpec.
 
