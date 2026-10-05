@@ -25,4 +25,4 @@
 
 ## 5. Release
 
-- [ ] 5.1 Create the `form@hgirdzijauskas.lt` mailbox in Hostinger, run `nc -vz smtp.hostinger.com 465` on the server, confirm the app port is reachable only through Caddy, set the production env keys in the server's runtime env and add the Grafana alert on `contact-form: send failed`. This is the owner's step. Verify a message sent from the live site lands in `hello@hgirdzijauskas.lt` with the visitor as reply-to.
+- [x] 5.1 Create the `form@hgirdzijauskas.lt` mailbox in Hostinger, run `nc -vz smtp.hostinger.com 465` on the server, confirm the app port is reachable only through Caddy, set the production env keys in the server's runtime env and add the Grafana alert on `contact-form: send failed`. This is the owner's step. Verify a message sent from the live site lands in `hello@hgirdzijauskas.lt` with the visitor as reply-to.

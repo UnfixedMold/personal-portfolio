@@ -116,7 +116,7 @@ export const testProjects: Projects = {
   items: [
     {
       title: 'Pictured project',
-      type: 'Web app',
+      tags: ['Web app'],
       description: 'Has a screenshot.',
       shows: 'Shows: pictures.',
       url: 'https://pictured.example.test/',
@@ -126,7 +126,7 @@ export const testProjects: Projects = {
     },
     {
       title: 'Bare project',
-      type: 'AI app',
+      tags: ['ML models', 'Web app'],
       description: 'Has no screenshot yet.',
       shows: 'Shows: patience.',
       url: 'https://bare.example.test/',

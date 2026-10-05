@@ -21,7 +21,7 @@ function ProjectImage({ project }: { project: Project }) {
         alt={project.imageLabel}
         sizes="(min-width: 768px) 50vw, 100vw"
         placeholder="blur"
-        className="size-full object-cover"
+        className="size-full object-cover object-top"
       />
     )
   }
@@ -52,19 +52,23 @@ export function Projects({ projects }: ProjectsProps) {
             rel="noreferrer"
             className="block rounded-3xl hover:opacity-100"
           >
-            <SurfaceCard className="hover:border-primary/35 hover:shadow-lift h-full gap-3.5 px-5 py-5 text-base transition-[translate,box-shadow,border-color] duration-300 hover:-translate-y-1.5">
-              <div className="aspect-[16/10] overflow-hidden rounded-2xl">
+            <SurfaceCard className="hover:border-primary/35 hover:shadow-lift h-full gap-0 py-0 text-base transition-[translate,box-shadow,border-color] duration-300 hover:-translate-y-1.5">
+              <div className="aspect-[16/10] overflow-hidden border-b">
                 <ProjectImage project={project} />
               </div>
-              <div className="flex items-center gap-2.5">
-                <h3 className="text-lg font-bold">{project.title}</h3>
-                <TagPill>{project.type}</TagPill>
+              <div className="flex flex-1 flex-col gap-3.5 p-6">
+                <div className="flex items-center gap-2.5">
+                  <h3 className="text-lg font-bold">{project.title}</h3>
+                  {project.tags.map((tag) => (
+                    <TagPill key={tag}>{tag}</TagPill>
+                  ))}
+                </div>
+                <p className="text-muted-foreground">{project.description}</p>
+                <p className="text-faint-foreground text-sm">{project.shows}</p>
+                <p className="text-primary mt-auto text-sm font-semibold">
+                  {project.domain} ↗
+                </p>
               </div>
-              <p className="text-muted-foreground">{project.description}</p>
-              <p className="text-faint-foreground text-sm">{project.shows}</p>
-              <p className="text-primary mt-auto text-sm font-semibold">
-                {project.domain} ↗
-              </p>
             </SurfaceCard>
           </a>
         ))}

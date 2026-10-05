@@ -8,7 +8,7 @@ Checks every change before it reaches `main` and turns every commit on `main` in
 
 ### Requirement: Every change is checked
 
-The `Check` job SHALL run on every pull request, every push to `main` and on manual dispatch. It SHALL fail when formatting, lint, typecheck, unit tests, end-to-end tests or the production build fail. It SHALL never rewrite files to make a check pass.
+The `Check` job SHALL run on every pull request, every push to `main` and on manual dispatch. It SHALL fail when formatting, lint, typecheck, unit tests or end-to-end tests fail. It SHALL never rewrite files to make a check pass.
 
 #### Scenario: A pull request has an unformatted file
 
@@ -18,25 +18,16 @@ The `Check` job SHALL run on every pull request, every push to `main` and on man
 #### Scenario: A pull request breaks an end-to-end journey
 
 - **WHEN** a pull request makes a Playwright journey fail
-- **THEN** `Check` fails and the Playwright report is attached to the run for seven days
+- **THEN** `Check` fails
 
 #### Scenario: A clean pull request
 
 - **WHEN** a pull request passes every check
 - **THEN** `Check` succeeds and no image is published
 
-### Requirement: Main merges only after Check passes
-
-A pull request into `main` SHALL be mergeable only when `Check` succeeded on its head commit.
-
-#### Scenario: Check fails on a pull request
-
-- **WHEN** `Check` failed on the head commit of a pull request
-- **THEN** GitHub blocks the merge
-
 ### Requirement: Main publishes the production image
 
-After `Check` succeeds on a push to `main` or a manual dispatch, CI SHALL build the production image and push it to `ghcr.io/unfixedmold/protfolio`. Each push SHALL carry two tags: `latest` and `sha-<7 character commit sha>`. A pull request SHALL never publish an image.
+After `Check` succeeds on a push to `main` or a manual dispatch, CI SHALL build the production image and push it to `ghcr.io/unfixedmold/personal-portfolio`. Each push SHALL carry two tags: `latest` and `sha-<7 character commit sha>`. A pull request SHALL never publish an image.
 
 #### Scenario: A pull request merges into main
 
@@ -64,14 +55,9 @@ The image SHALL start the production server on port 3000 without installing anyt
 
 ### Requirement: A published image triggers the deploy
 
-After the image is published, CI SHALL dispatch the `deploy.yml` workflow in the deploy repo with the `sha-` tag and a run name of `protfolio: <commit subject> (<short sha>)`. When no deploy repo is configured, CI SHALL skip the trigger and the run SHALL still succeed.
+After the image is published from `main`, CI SHALL dispatch the `deploy.yml` workflow in `UnfixedMold/personal-portfolio-deploy` with the `sha-` tag and a run name of `portfolio: <commit subject> (<short sha>)`.
 
-#### Scenario: The deploy repo is configured
+#### Scenario: An image is published from main
 
-- **WHEN** an image is published and the deploy repo is configured
+- **WHEN** an image is published from a push to `main`
 - **THEN** a deploy run starts in the deploy repo for that `sha-` tag
-
-#### Scenario: The deploy repo is not configured yet
-
-- **WHEN** an image is published and no deploy repo is configured
-- **THEN** the deploy trigger is skipped and the workflow run is green
