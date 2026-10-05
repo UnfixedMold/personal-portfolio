@@ -1,8 +1,10 @@
 import type { StaticImageData } from 'next/image'
+import aitrafScreenshot from '@/assets/images/aitraf.png'
+import h2bcStoreScreenshot from '@/assets/images/h2bc-store.png'
 
 export type Project = {
   title: string
-  type: string
+  tags: readonly string[]
   description: string
   shows: string
   url: string
@@ -18,29 +20,30 @@ export type Projects = {
 }
 
 export const projects: Projects = {
-  title: 'Side projects',
-  subtitle:
-    'Two things I built alone, for myself, from first commit to a live server.',
+  title: 'Personal projects',
+  subtitle: "I'm tired to build projects alone, lets do something together.",
   items: [
     {
       title: 'h2bc store',
-      type: 'Web app',
+      tags: ['Web app'],
       description:
         'My own small clothing brand’s store. No Shopify — a Medusa backend, a custom Next.js storefront, payments, admin, CI deploys, all self‑hosted.',
       shows: 'Shows: full product build, e‑commerce, infra.',
       url: 'https://dev.h2bcweb.com/',
       domain: 'dev.h2bcweb.com',
-      imageLabel: 'storefront screenshot',
+      image: h2bcStoreScreenshot,
+      imageLabel: 'h2bc storefront screenshot',
     },
     {
       title: 'AITRAF',
-      type: 'AI app',
+      tags: ['ML models', 'Web app'],
       description:
         'Master’s thesis turned into a working product: I labeled the dataset, trained ViT and temporal models, and shipped a FastAPI + Next.js demo anyone can try.',
       shows: 'Shows: data → model → deployed AI app.',
       url: 'https://aitraf-project.com/',
       domain: 'aitraf-project.com',
-      imageLabel: 'demo app screenshot',
+      image: aitrafScreenshot,
+      imageLabel: 'AITRAF demo app screenshot',
     },
   ],
 }
