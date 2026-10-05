@@ -9,7 +9,7 @@ type SiteHeaderProps = {
 
 export function SiteHeader({ site }: SiteHeaderProps) {
   return (
-    <header className="bg-background/70 sticky top-0 z-10 border-b backdrop-blur-xl">
+    <header className="before:bg-background/70 sticky top-0 z-10 border-b before:absolute before:inset-0 before:-z-10 before:backdrop-blur-xl">
       <div className="content-width flex h-19 items-center justify-between gap-4">
         <a href="#top" aria-label={site.name} className="flex items-center">
           <BrandMark letter={site.mark} aria-hidden />
