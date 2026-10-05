@@ -23,15 +23,13 @@ function isMouse(event: React.PointerEvent) {
 }
 
 export function JobAccordion({ jobs }: JobAccordionProps) {
-  const newest = getJobKey(jobs[0])
-  const [open, setOpen] = useState(newest)
+  const [open, setOpen] = useState(getJobKey(jobs[0]))
 
   return (
     <Accordion
       type="single"
       value={open}
       onValueChange={(value) => value && setOpen(value)}
-      onPointerLeave={(event) => isMouse(event) && setOpen(newest)}
       className="@container gap-3"
     >
       {jobs.map((job) => (
@@ -44,7 +42,7 @@ export function JobAccordion({ jobs }: JobAccordionProps) {
           <AccordionTrigger className="py-4 text-base font-normal hover:no-underline **:data-[slot=accordion-trigger-icon]:hidden">
             <span className="grid flex-1 gap-0.5 @md:grid-cols-[1fr_auto] @md:items-baseline @md:gap-x-3">
               <span className="text-lg font-bold">{job.role}</span>
-              <span className="text-primary order-last text-sm font-semibold @md:order-none">
+              <span className="text-primary order-last text-sm font-semibold @md:order-0">
                 {job.period}
               </span>
               <span className="text-muted-foreground text-sm @md:col-span-2">

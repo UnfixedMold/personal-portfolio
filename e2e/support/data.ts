@@ -11,6 +11,7 @@ export const newestRole = 'AI Practice Lead'
 export const clickedRole = 'ML/AI Engineer'
 export const keyedRole = 'Machine Learning Engineer'
 export const tappedRole = 'Software Engineer'
+export const hoveredRole = 'Machine Learning Engineer'
 export const projectTitle = 'h2bc store'
 export const projectDomain = 'dev.h2bcweb.com'
 export const validContact = {
