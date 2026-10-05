@@ -13,7 +13,15 @@ export class Header {
   }
 
   get nav() {
-    return this.banner.getByRole('navigation')
+    return this.banner.getByRole('navigation', { name: 'Sections' })
+  }
+
+  get menuButton() {
+    return this.banner.getByRole('button', { name: 'Menu' })
+  }
+
+  get menu() {
+    return this.banner.getByRole('navigation', { name: 'Menu' })
   }
 
   get callToAction() {
@@ -22,6 +30,14 @@ export class Header {
 
   navLink(label: string) {
     return this.nav.getByRole('link', { name: label })
+  }
+
+  menuLink(label: string) {
+    return this.menu.getByRole('link', { name: label })
+  }
+
+  async openMenu() {
+    await this.menuButton.click()
   }
 
   async scrollDown(pixels: number) {

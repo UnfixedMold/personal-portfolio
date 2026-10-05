@@ -1,4 +1,5 @@
 import { BrandMark } from '@/components/brand-mark'
+import { MobileNav } from '@/components/mobile-nav'
 import { Button } from '@/components/ui/button'
 import type { Site } from '@/lib/site'
 
@@ -10,14 +11,10 @@ export function SiteHeader({ site }: SiteHeaderProps) {
   return (
     <header className="bg-background/70 sticky top-0 z-10 border-b backdrop-blur-xl">
       <div className="content-width flex h-19 items-center justify-between gap-4">
-        <a href="#top" className="flex min-w-0 items-center gap-3.5">
+        <a href="#top" aria-label={site.name} className="flex items-center">
           <BrandMark letter={site.mark} aria-hidden />
-          <span className="text-[15px] leading-tight font-bold">
-            <span className="sm:hidden">{site.shortName}</span>
-            <span className="hidden sm:inline">{site.name}</span>
-          </span>
         </a>
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-[clamp(10px,3vw,32px)]">
           <nav
             aria-label="Sections"
             className="hidden gap-8 text-sm font-semibold lg:flex"
@@ -35,6 +32,7 @@ export function SiteHeader({ site }: SiteHeaderProps) {
           <Button asChild>
             <a href="#contact">{site.callToAction}</a>
           </Button>
+          <MobileNav nav={site.nav} />
         </div>
       </div>
     </header>
