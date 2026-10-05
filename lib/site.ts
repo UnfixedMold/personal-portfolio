@@ -1,7 +1,7 @@
 export const site = {
   name: 'Henrikas Antanas Girdzijauskas',
   shortName: 'Henrikas',
-  mark: 'h',
+  mark: 'hag',
   city: 'Vilnius',
   description:
     'Henrikas Antanas Girdzijauskas builds AI apps, ML models and web apps end to end, from the first document to production.',
