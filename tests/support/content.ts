@@ -1,5 +1,6 @@
 import { BrainCircuit, MonitorSmartphone, Sparkles } from 'lucide-react'
 import type { StaticImageData } from 'next/image'
+import type { Contact } from '@/lib/content/contact'
 import type { Education } from '@/lib/content/education'
 import type { Experience } from '@/lib/content/experience'
 import type { Projects } from '@/lib/content/projects'
@@ -133,4 +134,22 @@ export const testProjects: Projects = {
       imageLabel: 'bare project screenshot',
     },
   ],
+}
+
+const testField = {
+  label: 'Field',
+  placeholder: 'Field',
+  required: 'Fill this in.',
+  tooLong: 'Too long.',
+}
+
+export const testContactForm: Contact['form'] = {
+  name: testField,
+  email: { ...testField, invalid: 'Not an email.' },
+  message: testField,
+  submit: 'Send',
+  pending: 'Sending',
+  success: { title: 'Got it', text: 'Talk soon.', again: 'Write again' },
+  error: 'Something broke, write to',
+  limited: 'Slow down a little.',
 }

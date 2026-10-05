@@ -7,6 +7,7 @@ Personal portfolio site. One pnpm project at the repo root: Next.js App Router w
 - `app/`: routes and layouts.
 - `components/`: shared components, shadcn primitives in `components/ui/`.
 - `lib/`: helpers and data.
+- A feature with several files gets its own folder in both, like `components/contact/` and `lib/contact/`. A one-file section stays flat.
 - `tests/`: Vitest unit tests. `e2e/`: Playwright journeys.
 - `openspec/`: specs and changes.
 - `wireframes.html`: the page wireframes, the design reference until the pages exist.

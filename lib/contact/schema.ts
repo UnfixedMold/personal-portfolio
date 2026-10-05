@@ -5,14 +5,25 @@ const { form } = contact
 
 export const honeypotField = 'company'
 
+export const maxLength = { name: 100, email: 254, message: 5000 }
+
 const contactSchema = z.object({
-  name: z.string().trim().min(1, form.name.required),
+  name: z
+    .string()
+    .trim()
+    .min(1, form.name.required)
+    .max(maxLength.name, form.name.tooLong),
   email: z
     .string()
     .trim()
     .min(1, form.email.required)
+    .max(maxLength.email, form.email.tooLong)
     .pipe(z.email(form.email.invalid)),
-  message: z.string().trim().min(1, form.message.required),
+  message: z
+    .string()
+    .trim()
+    .min(1, form.message.required)
+    .max(maxLength.message, form.message.tooLong),
 })
 
 export type ContactValues = z.infer<typeof contactSchema>
@@ -21,8 +32,13 @@ export type ContactErrors = Partial<Record<keyof ContactValues, string>>
 export type ContactState = {
   values: ContactValues
   errors: ContactErrors
-  status: 'idle' | 'success'
+  status: 'idle' | 'success' | 'error' | 'limited'
 }
+
+export type ContactOutcome =
+  | { kind: 'spam' }
+  | { kind: 'invalid'; values: ContactValues; errors: ContactErrors }
+  | { kind: 'valid'; values: ContactValues }
 
 export const emptyValues: ContactValues = { name: '', email: '', message: '' }
 
@@ -49,11 +65,11 @@ function getFirstErrors(error: z.ZodError<ContactValues>): ContactErrors {
   )
 }
 
-export function parseContact(formData: FormData): ContactState {
+export function parseContact(formData: FormData): ContactOutcome {
   const isSpam = getField(formData, honeypotField) !== ''
 
   if (isSpam) {
-    return { values: emptyValues, errors: {}, status: 'success' }
+    return { kind: 'spam' }
   }
 
   const values: ContactValues = {
@@ -64,8 +80,8 @@ export function parseContact(formData: FormData): ContactState {
   const result = contactSchema.safeParse(values)
 
   if (!result.success) {
-    return { values, errors: getFirstErrors(result.error), status: 'idle' }
+    return { kind: 'invalid', values, errors: getFirstErrors(result.error) }
   }
 
-  return { values: emptyValues, errors: {}, status: 'success' }
+  return { kind: 'valid', values: result.data }
 }

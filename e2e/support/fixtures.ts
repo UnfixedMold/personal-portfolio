@@ -6,6 +6,8 @@ import { Experience } from './experience'
 import { Header } from './header'
 import { Hero } from './hero'
 import { HomePage } from './home-page'
+import { mailpitUrl } from './data'
+import { Mailbox } from './mailbox'
 import { Projects } from './projects'
 import { Sections } from './sections'
 
@@ -17,6 +19,7 @@ type Fixtures = {
   experience: Experience
   projects: Projects
   contactPage: ContactPage
+  mailbox: Mailbox
   crawler: Crawler
   accessibility: Accessibility
 }
@@ -42,6 +45,13 @@ export const test = base.extend<Fixtures>({
   },
   contactPage: async ({ page }, use) => {
     await use(new ContactPage(page))
+  },
+  mailbox: async ({ playwright }, use) => {
+    const api = await playwright.request.newContext({ baseURL: mailpitUrl })
+    const mailbox = new Mailbox(api)
+
+    await use(mailbox)
+    await mailbox.close()
   },
   crawler: async ({ page }, use) => {
     await use(new Crawler(page))

@@ -24,3 +24,10 @@ export const fieldCount = 3
 export const siteUrl = 'https://girdzijauskas.lt'
 export const socialImageSize = { width: '1200', height: '630' }
 export const themeColor = '#fbfaff'
+export const mailpitUrl = process.env.MAILPIT_URL ?? 'http://mailpit:8025'
+export const tooLongMessage = 'a'.repeat(5001)
+export const deliveryCheckDelay = 1000
+
+export function getUniqueContact() {
+  return { ...validContact, name: `Ada ${crypto.randomUUID()}` }
+}

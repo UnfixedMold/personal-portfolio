@@ -1,25 +1,48 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useActionState, useState } from 'react'
+import { ContactSent } from '@/components/contact/sent'
+import { ContactAlert } from '@/components/contact/alert'
 import { Button } from '@/components/ui/button'
 import { Field, FieldError, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { Spinner } from '@/components/ui/spinner'
 import { Textarea } from '@/components/ui/textarea'
-import { sendMessage } from '@/lib/contact-action'
-import { honeypotField, initialContactState } from '@/lib/contact-schema'
+import { sendMessage } from '@/lib/contact/action'
+import { honeypotField, initialContactState } from '@/lib/contact/schema'
 import type { Contact } from '@/lib/content/contact'
 
 type ContactFormProps = {
   form: Contact['form']
+  email: string
 }
 
-export function ContactForm({ form }: ContactFormProps) {
+type ContactFieldsProps = ContactFormProps & {
+  onReset: () => void
+}
+
+export function ContactForm(props: ContactFormProps) {
+  const [attempt, setAttempt] = useState(0)
+
+  return (
+    <ContactFields
+      key={attempt}
+      {...props}
+      onReset={() => setAttempt((count) => count + 1)}
+    />
+  )
+}
+
+function ContactFields({ form, email, onReset }: ContactFieldsProps) {
   const [state, formAction, pending] = useActionState(
     sendMessage,
     initialContactState
   )
   const { values, errors, status } = state
+
+  if (status === 'success') {
+    return <ContactSent success={form.success} onReset={onReset} />
+  }
 
   return (
     <form action={formAction} noValidate className="flex flex-col gap-3">
@@ -83,13 +106,7 @@ export function ContactForm({ form }: ContactFormProps) {
         {pending ? <Spinner /> : null}
         {pending ? form.pending : form.submit}
       </Button>
-      <p
-        role="status"
-        aria-live="polite"
-        className="text-primary text-sm font-semibold"
-      >
-        {status === 'success' ? form.success : null}
-      </p>
+      <ContactAlert status={status} form={form} email={email} />
     </form>
   )
 }

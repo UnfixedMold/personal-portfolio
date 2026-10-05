@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Contact } from '@/components/contact'
+import { Contact } from '@/components/contact/contact'
 import { Education } from '@/components/education'
 import { Experience } from '@/components/experience'
 import { Hero } from '@/components/hero'
