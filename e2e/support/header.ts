@@ -25,7 +25,7 @@ export class Header {
   }
 
   get callToAction() {
-    return this.banner.getByRole('link', { name: /book a call/i })
+    return this.banner.getByRole('link', { name: /get in touch/i })
   }
 
   navLink(label: string) {

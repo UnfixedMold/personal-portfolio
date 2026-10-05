@@ -10,7 +10,7 @@ export const site = {
   phone: { display: '+370 69873251', href: 'tel:+37069873251' },
   linkedIn:
     'https://www.linkedin.com/in/henrikas-antanas-girdzijauskas-ab9b0413a/',
-  callToAction: 'Book a call',
+  callToAction: 'Get in touch',
   nav: [
     { label: 'Services', href: '#services' },
     { label: 'Experience', href: '#experience' },
