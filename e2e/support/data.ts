@@ -5,6 +5,7 @@ export const desktopWidth = 1280
 export const scrollDistance = 1500
 export const headlineWords = ['AI apps', 'ML models', 'web apps']
 export const wordCycleTimeout = 6000
+export const menuLabels = ['Services', 'Experience', 'Projects']
 export const servicesTitle = 'What I build'
 export const experienceTitle = 'Experience'
 export const newestRole = 'AI Practice Lead'
