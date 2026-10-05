@@ -1,3 +1,5 @@
+<p align="center"><img src="app/icon.svg" alt="Logo" width="96"></p>
+
 # Personal portfolio
 
 Personal portfolio site. Next.js with shadcn/ui, changes planned with OpenSpec.
