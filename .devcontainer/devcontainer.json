@@ -30,7 +30,7 @@
   "remoteEnv": {
     "CLAUDE_CONFIG_DIR": "/claude"
   },
-  "postCreateCommand": "if [ -f pnpm-lock.yaml ]; then pnpm i --frozen; fi",
+  "postCreateCommand": "if [ -f pnpm-lock.yaml ]; then pnpm i --frozen-lockfile; fi",
   "shutdownAction": "stopCompose",
   "customizations": {
     "vscode": {
