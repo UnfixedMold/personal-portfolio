@@ -4,7 +4,7 @@
 
 - [x] 1.1 Create the branch `deliver-contact-form` from `main` after `build-home-page` is archived. Read `02-guides/environment-variables.md` and `03-api-reference/05-config/01-next-config-js/serverExternalPackages.md` under `node_modules/next/dist/docs/01-app/`, and the nodemailer 10 SMTP transport docs. Verify the Mail transport and Configuration decisions in design.md against them, and update design.md where they differ.
 - [x] 1.2 Run `pnpm add nodemailer rate-limiter-flexible`. Verify `pnpm typecheck` and `pnpm build` pass with no `serverExternalPackages` entry and no `@types/nodemailer`.
-- [ ] 1.3 Add the Mailpit service to `.devcontainer/docker-compose.yml`, commit `.env.development` with the development column, add `!.env.development` to `.gitignore` and list every key in `.env.example`. Verify after a container rebuild that `http://localhost:8025` shows the Mailpit inbox.
+- [x] 1.3 Add the Mailpit service to `.devcontainer/docker-compose.yml`, commit `.env.development` with the development column, add `!.env.development` to `.gitignore` and list every key in `.env.example`. Verify after a container rebuild that `http://localhost:8025` shows the Mailpit inbox.
 
 ## 2. Sending
 
