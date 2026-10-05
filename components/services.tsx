@@ -20,7 +20,9 @@ export function Services({ services }: ServicesProps) {
       <div className="grid gap-4 lg:grid-cols-3">
         {services.items.map((service) => (
           <SurfaceCard key={service.title} className="gap-3.5 px-6 text-base">
-            <GradientTile aria-hidden>{service.glyph}</GradientTile>
+            <GradientTile className="size-12" aria-hidden>
+              <service.icon className="size-6" />
+            </GradientTile>
             <h3 className="text-lg font-bold">{service.title}</h3>
             <p className="text-muted-foreground">{service.text}</p>
             <p className="text-faint-foreground text-sm">{service.examples}</p>

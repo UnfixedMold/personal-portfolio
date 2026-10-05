@@ -52,7 +52,7 @@ export function Projects({ projects }: ProjectsProps) {
             rel="noreferrer"
             className="block rounded-3xl hover:opacity-100"
           >
-            <SurfaceCard className="h-full gap-3.5 px-5 py-5 text-base hover:-translate-y-1.5">
+            <SurfaceCard className="hover:border-primary/35 hover:shadow-lift h-full gap-3.5 px-5 py-5 text-base transition-[translate,box-shadow,border-color] duration-300 hover:-translate-y-1.5">
               <div className="aspect-[16/10] overflow-hidden rounded-2xl">
                 <ProjectImage project={project} />
               </div>

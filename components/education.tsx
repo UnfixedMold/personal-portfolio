@@ -19,19 +19,22 @@ const medals = {
 
 function AwardRow({ award }: { award: Award }) {
   return (
-    <li className="flex items-center gap-4 rounded-[14px] border border-white/18 bg-white/12 p-3.5">
+    <li className="flex items-start gap-4 border-t border-white/18 pt-5">
       <span
         aria-hidden
         className={cn(
-          'flex size-13 shrink-0 items-center justify-center rounded-full bg-linear-145 shadow-[inset_0_-3px_0_rgb(0_0_0/0.12),0_6px_16px_rgb(0_0_0/0.18)]',
+          'flex size-11 shrink-0 items-center justify-center rounded-full bg-linear-145 shadow-[inset_0_-3px_0_rgb(0_0_0/0.12),0_6px_16px_rgb(0_0_0/0.18)]',
           medals[award.medal]
         )}
       >
-        <Medal className="size-6.5" />
+        <Medal className="size-5.5" />
       </span>
       <span className="flex flex-col gap-0.5">
         <span className="text-[17px] font-extrabold">{award.place}</span>
         <span className="text-sm opacity-90">{award.label}</span>
+        <span className="mt-2.5 border-l border-white/40 pl-3 text-sm opacity-85">
+          {award.thesis}
+        </span>
       </span>
     </li>
   )
@@ -76,7 +79,7 @@ export function Education({ education }: EducationProps) {
           <GraduationCap aria-hidden className="size-4.5" />
           {education.awardsTitle}
         </h3>
-        <ul className="flex flex-col gap-3">
+        <ul className="flex flex-col gap-5">
           {awards.map((award) => (
             <AwardRow key={award.label} award={award} />
           ))}

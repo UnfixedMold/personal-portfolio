@@ -1,5 +1,12 @@
+import {
+  BrainCircuit,
+  MonitorSmartphone,
+  Sparkles,
+  type LucideIcon,
+} from 'lucide-react'
+
 export type Service = {
-  glyph: string
+  icon: LucideIcon
   title: string
   text: string
   examples: string
@@ -17,21 +24,7 @@ export const services: Services = {
   subtitle: 'Design, frontend, backend, models, deployment.',
   items: [
     {
-      glyph: '</>',
-      title: 'Web & mobile apps',
-      text: 'Customer-facing sites, internal tools, mobile apps — with the backend and API behind them, deployed and running.',
-      examples:
-        'e.g. an online store, a booking or admin system, a B2B platform, a companion mobile app.',
-      stack: [
-        'Next.js',
-        'React Native',
-        'Node / Python APIs',
-        'PostgreSQL',
-        'Docker',
-      ],
-    },
-    {
-      glyph: 'AI',
+      icon: Sparkles,
       title: 'AI applications',
       text: 'Products with an LLM inside: assistants over your documents, content generation, document processing, agents that take actions.',
       examples:
@@ -45,12 +38,26 @@ export const services: Services = {
       ],
     },
     {
-      glyph: 'ML',
+      icon: BrainCircuit,
       title: 'ML models',
       text: 'Custom models trained on your data, properly evaluated, and served as an API your product can call.',
       examples:
         'e.g. image & video recognition, time-series forecasting, recommendation, clustering users or content.',
       stack: ['PyTorch', 'Transformers', 'scikit-learn', 'MLflow', 'Azure'],
+    },
+    {
+      icon: MonitorSmartphone,
+      title: 'Web & mobile apps',
+      text: 'Customer-facing sites, internal tools, mobile apps — with the backend and API behind them, deployed and running.',
+      examples:
+        'e.g. an online store, a booking or admin system, a B2B platform, a companion mobile app.',
+      stack: [
+        'Next.js',
+        'React Native',
+        'Node / Python APIs',
+        'PostgreSQL',
+        'Docker',
+      ],
     },
   ],
 }
