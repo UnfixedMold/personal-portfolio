@@ -28,6 +28,10 @@ export class Header {
     await this.page.mouse.wheel(0, pixels)
   }
 
+  async scrollToTop() {
+    await this.page.evaluate(() => window.scrollTo(0, 0))
+  }
+
   async getBottom() {
     const box = await this.banner.boundingBox()
 

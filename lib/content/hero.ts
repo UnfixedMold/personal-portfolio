@@ -18,7 +18,7 @@ export const hero: Hero = {
     subject: 'I',
     heart: '♥',
     verb: 'to build',
-    words: ['web apps', 'AI apps', 'ML models'],
+    words: ['AI apps', 'ML models', 'web apps'],
     tail: 'end‑to‑end',
   },
   pitch: 'From training AI models to deploying web apps, I make things happen',

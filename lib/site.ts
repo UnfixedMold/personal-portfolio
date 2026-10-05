@@ -4,7 +4,7 @@ export const site = {
   mark: 'h',
   city: 'Vilnius',
   description:
-    'Henrikas Antanas Girdzijauskas builds web apps, AI apps and ML models end to end, from the first document to production.',
+    'Henrikas Antanas Girdzijauskas builds AI apps, ML models and web apps end to end, from the first document to production.',
   url: 'https://girdzijauskas.lt',
   email: 'hello@girdzijauskas.lt',
   phone: { display: '+370 69873251', href: 'tel:+37069873251' },

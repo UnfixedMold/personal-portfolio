@@ -1,4 +1,4 @@
-import { ContactForm } from '@/components/contact-form'
+import { ContactForm } from '@/components/contact/form'
 import { LinkedInIcon } from '@/components/linkedin-icon'
 import { Section } from '@/components/section'
 import type { Contact as ContactContent } from '@/lib/content/contact'
@@ -40,7 +40,7 @@ export function Contact({ contact }: ContactProps) {
             ))}
           </ul>
         </div>
-        <ContactForm form={contact.form} />
+        <ContactForm form={contact.form} email={contact.email} />
       </div>
     </Section>
   )

@@ -5,3 +5,7 @@ services:
     command: sleep infinity
     ports:
       - "127.0.0.1:${FRONT_PORT:-3000}:3000"
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "127.0.0.1:${MAILPIT_PORT:-8025}:8025"

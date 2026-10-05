@@ -1,6 +1,7 @@
 import {
   clickedRole,
   desktopWidth,
+  hoveredRole,
   keyedRole,
   newestRole,
   phoneWidth,
@@ -21,6 +22,23 @@ test('a visitor expands a job', async ({ homePage, experience }) => {
 
   await test.step('Then its highlights show and the newest job collapses', async () => {
     await expect(experience.highlightsOf(clickedRole)).toBeVisible()
+    await expect(experience.highlightsOf(newestRole)).toBeHidden()
+  })
+})
+
+test('a visitor points at a job', async ({ homePage, experience }) => {
+  await test.step('Given a visitor at the experience section', async () => {
+    await homePage.resizeToWidth(desktopWidth)
+    await homePage.open()
+  })
+
+  await test.step('When they point at a collapsed job and move the pointer away', async () => {
+    await experience.expandByHover(hoveredRole)
+    await experience.movePointerAway()
+  })
+
+  await test.step('Then that job stays open and the newest job stays collapsed', async () => {
+    await expect(experience.highlightsOf(hoveredRole)).toBeVisible()
     await expect(experience.highlightsOf(newestRole)).toBeHidden()
   })
 })

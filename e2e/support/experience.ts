@@ -1,4 +1,4 @@
-import type { Page } from '@playwright/test'
+import { expect, type Page } from '@playwright/test'
 
 export class Experience {
   constructor(private readonly page: Page) {}
@@ -21,6 +21,18 @@ export class Experience {
 
   async expandByTap(role: string) {
     await this.job(role).tap()
+  }
+
+  async expandByHover(role: string) {
+    await expect(async () => {
+      await this.movePointerAway()
+      await this.job(role).hover()
+      await expect(this.highlightsOf(role)).toBeVisible({ timeout: 500 })
+    }).toPass()
+  }
+
+  async movePointerAway() {
+    await this.page.mouse.move(0, 0)
   }
 
   async expandByKeyboard(role: string) {

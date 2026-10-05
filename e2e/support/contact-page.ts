@@ -34,7 +34,7 @@ export class ContactPage {
   }
 
   get sendButton() {
-    return this.section.getByRole('button', { name: /send/i })
+    return this.section.getByRole('button', { name: /^send message$/i })
   }
 
   get errors() {
@@ -43,6 +43,17 @@ export class ContactPage {
 
   get successMessage() {
     return this.section.getByRole('status').filter({ hasText: /sent/i })
+  }
+
+  get sendAnotherButton() {
+    return this.section.getByRole('button', { name: /send another/i })
+  }
+
+  get messageError() {
+    return this.section
+      .getByRole('group')
+      .filter({ has: this.page.getByRole('textbox', { name: /message/i }) })
+      .getByRole('alert')
   }
 
   async fill(values: Partial<ContactValues>) {
@@ -56,5 +67,9 @@ export class ContactPage {
 
   async send() {
     await this.sendButton.click()
+  }
+
+  async sendAnother() {
+    await this.sendAnotherButton.click()
   }
 }

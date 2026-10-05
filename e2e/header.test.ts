@@ -69,3 +69,24 @@ test('the header keeps only the essentials on a phone', async ({
     await expect(header.nav).toBeHidden()
   })
 })
+
+test('a visitor returns to the top from the header', async ({
+  homePage,
+  header,
+  hero,
+  contactPage,
+}) => {
+  await test.step('Given a visitor who went to the contact section', async () => {
+    await homePage.open()
+    await header.callToAction.click()
+    await expect(contactPage.section).toBeInViewport()
+  })
+
+  await test.step('When they activate the brand mark in the header', async () => {
+    await header.homeLink.click()
+  })
+
+  await test.step('Then the page is back at the top', async () => {
+    await expect(hero.headline).toBeInViewport()
+  })
+})

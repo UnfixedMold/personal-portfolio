@@ -1,4 +1,6 @@
+import { BrainCircuit, MonitorSmartphone, Sparkles } from 'lucide-react'
 import type { StaticImageData } from 'next/image'
+import type { Contact } from '@/lib/content/contact'
 import type { Education } from '@/lib/content/education'
 import type { Experience } from '@/lib/content/experience'
 import type { Projects } from '@/lib/content/projects'
@@ -29,21 +31,21 @@ export const testServices: Services = {
   subtitle: 'From sketch to server.',
   items: [
     {
-      glyph: 'A',
+      icon: Sparkles,
       title: 'Alpha service',
       text: 'Alpha text',
       examples: 'e.g. alpha',
       stack: ['A1', 'A2'],
     },
     {
-      glyph: 'B',
+      icon: BrainCircuit,
       title: 'Beta service',
       text: 'Beta text',
       examples: 'e.g. beta',
       stack: ['B1'],
     },
     {
-      glyph: 'C',
+      icon: MonitorSmartphone,
       title: 'Gamma service',
       text: 'Gamma text',
       examples: 'e.g. gamma',
@@ -93,8 +95,18 @@ export const testEducation: Education = {
   },
   awardsTitle: 'Test awards',
   awards: [
-    { place: '1st place', label: 'Best test', medal: 'gold' },
-    { place: '2nd place', label: 'Runner-up test', medal: 'silver' },
+    {
+      place: '1st place',
+      label: 'Best test',
+      thesis: 'Gold thesis',
+      medal: 'gold',
+    },
+    {
+      place: '2nd place',
+      label: 'Runner-up test',
+      thesis: 'Silver thesis',
+      medal: 'silver',
+    },
   ],
 }
 
@@ -122,4 +134,22 @@ export const testProjects: Projects = {
       imageLabel: 'bare project screenshot',
     },
   ],
+}
+
+const testField = {
+  label: 'Field',
+  placeholder: 'Field',
+  required: 'Fill this in.',
+  tooLong: 'Too long.',
+}
+
+export const testContactForm: Contact['form'] = {
+  name: testField,
+  email: { ...testField, invalid: 'Not an email.' },
+  message: testField,
+  submit: 'Send',
+  pending: 'Sending',
+  success: { title: 'Got it', text: 'Talk soon.', again: 'Write again' },
+  error: 'Something broke, write to',
+  limited: 'Slow down a little.',
 }

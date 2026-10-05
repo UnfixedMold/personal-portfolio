@@ -10,6 +10,7 @@ export type Degree = {
 export type Award = {
   place: string
   label: string
+  thesis: string
   medal: 'gold' | 'silver'
 }
 
@@ -41,11 +42,13 @@ export const education: Education = {
     {
       place: '1st place',
       label: 'Best master’s thesis in course',
+      thesis: 'Aggressive inline trick classification & performance feedback',
       medal: 'gold',
     },
     {
       place: '2nd place',
       label: 'Best bachelor’s thesis in “Innovations for Life” category',
+      thesis: 'Finding Hamiltonian circuits using quantum calculations',
       medal: 'silver',
     },
   ],
