@@ -26,7 +26,7 @@ The home page SHALL open with a hero that shows the owner's name and city, a hea
 
 ### Requirement: The services section lists what the owner builds
 
-The home page SHALL show a section reachable at `#services`, titled for what the owner builds, with three service cards. Each card SHALL show a glyph, a title, a description, example use cases and a list of stack tags.
+The home page SHALL show a section reachable at `#services`, titled for what the owner builds, with a subtitle on how the owner works and three service cards. Each card SHALL show a glyph, a title, a description, example use cases and a list of stack tags.
 
 #### Scenario: A visitor reads the services
 
@@ -37,15 +37,6 @@ The home page SHALL show a section reachable at `#services`, titled for what the
 
 - **WHEN** the viewport is 375px wide
 - **THEN** the three cards stack in one column with no horizontal scroll
-
-### Requirement: The method section explains how the owner works
-
-The home page SHALL show a section reachable at `#method` with four numbered steps: spec, plan, build and verify, each with a title and a sentence.
-
-#### Scenario: A visitor reads the method
-
-- **WHEN** a visitor reaches the method section
-- **THEN** they see four numbered steps in order from spec to verify
 
 ### Requirement: The experience and education section shows the owner's history
 
