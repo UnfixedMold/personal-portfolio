@@ -39,7 +39,7 @@ export const services: Services = {
     {
       icon: BrainCircuit,
       title: 'ML models',
-      text: "When a general model isn't enough, I train one on your data: data pipelines, training and fine-tuning, evaluation, and deploying it as an API your product can use.",
+      text: "When a general model isn't enough, I train one on your data: data pipelines, fine-tuning, evaluation, and deploying it as an API your product can use.",
       stack: [
         'Azure ML',
         'PyTorch',
