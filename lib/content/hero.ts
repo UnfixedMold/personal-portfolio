@@ -21,5 +21,5 @@ export const hero: Hero = {
     words: ['AI apps', 'ML models', 'web apps'],
     tail: 'end‑to‑end',
   },
-  pitch: 'From training AI models to deploying web apps, I make things happen',
+  pitch: 'From training AI models to deploying web apps - I make things happen',
 }

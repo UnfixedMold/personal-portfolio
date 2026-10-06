@@ -31,7 +31,7 @@ The home page SHALL show a section reachable at `#services`, titled for what the
 #### Scenario: A visitor reads the services
 
 - **WHEN** a visitor reaches the services section
-- **THEN** they see three cards for web and mobile apps, AI applications and ML models, each with its examples and stack tags
+- **THEN** they see three cards for web and mobile apps, AI applications and ML models, each with its description and stack tags
 
 #### Scenario: The services stack on a phone
 
