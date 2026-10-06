@@ -6,7 +6,6 @@ export type Project = {
   title: string
   tags: readonly string[]
   description: string
-  shows: string
   url: string
   domain: string
   image?: StaticImageData
@@ -21,29 +20,28 @@ export type Projects = {
 
 export const projects: Projects = {
   title: 'Personal projects',
-  subtitle: "I'm tired to build projects alone, lets do something together.",
+  subtitle:
+    'Hobby projects, built from scratch and self-hosted from my living room',
   items: [
     {
       title: 'h2bc store',
       tags: ['Web app'],
       description:
-        'My own small clothing brand’s store. No Shopify — a Medusa backend, a custom Next.js storefront, payments, admin, CI deploys, all self‑hosted.',
-      shows: 'Shows: full product build, e‑commerce, infra.',
+        'The online store for my own small clothing brand, built completely custom instead of on Shopify or any other e-commerce platform. It runs on Medusa.js, with a custom frontend, payments, admin panel and CI/CD pipelines.',
       url: 'https://dev.h2bcweb.com/',
       domain: 'dev.h2bcweb.com',
       image: h2bcStoreScreenshot,
       imageLabel: 'h2bc storefront screenshot',
     },
     {
-      title: 'AITRAF',
+      title: 'AITRAF project',
       tags: ['ML models', 'Web app'],
       description:
-        'Master’s thesis turned into a working product: I labeled the dataset, trained ViT and temporal models, and shipped a FastAPI + Next.js demo anyone can try.',
-      shows: 'Shows: data → model → deployed AI app.',
+        'My master’s thesis, turned into a live demo styled like a retro ’90s website. Custom AI models trained on data I recorded and labeled myself. The models recognize aggressive inline tricks and rate how well they were done.',
       url: 'https://aitraf-project.com/',
       domain: 'aitraf-project.com',
       image: aitrafScreenshot,
-      imageLabel: 'AITRAF demo app screenshot',
+      imageLabel: 'AITRAF project demo app screenshot',
     },
   ],
 }

@@ -64,7 +64,6 @@ export function Projects({ projects }: ProjectsProps) {
                   ))}
                 </div>
                 <p className="text-muted-foreground">{project.description}</p>
-                <p className="text-faint-foreground text-sm">{project.shows}</p>
                 <p className="text-primary mt-auto text-sm font-semibold">
                   {project.domain} ↗
                 </p>

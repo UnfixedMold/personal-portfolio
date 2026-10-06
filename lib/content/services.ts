@@ -21,7 +21,7 @@ export type Services = {
 export const services: Services = {
   title: 'What I build',
   subtitle:
-    'I build with a team of AI agents, so big projects get done fast, by one person.',
+    'I build with a team of AI agents, so big projects get done fast, by one person',
   items: [
     {
       icon: Sparkles,
