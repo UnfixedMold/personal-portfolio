@@ -56,8 +56,8 @@ export const contactLinks: readonly ContactLink[] = [
 ]
 
 export const contact: Contact = {
-  title: 'Have something to build?',
-  text: 'Tell me what it is and I’ll get back to you.',
+  title: 'Got an idea?',
+  text: "I'm tired to build projects alone, lets do something together",
   email: site.email,
   links: contactLinks,
   form: {
