@@ -25,7 +25,6 @@ export function Services({ services }: ServicesProps) {
             </GradientTile>
             <h3 className="text-lg font-bold">{service.title}</h3>
             <p className="text-muted-foreground">{service.text}</p>
-            <p className="text-faint-foreground text-sm">{service.examples}</p>
             <ul className="mt-auto flex flex-wrap gap-2 pt-1">
               {service.stack.map((tag) => (
                 <li key={tag}>
