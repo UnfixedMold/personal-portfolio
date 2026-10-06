@@ -86,25 +86,30 @@ export const testEducation: Education = {
     logo: testImage,
     logoLabel: 'Test University logo',
     degrees: [
-      { period: '2018 — 20', level: 'Master', field: 'Testing' },
-      { period: '2014 — 18', level: 'Bachelor', field: 'Testing' },
+      {
+        period: '2018 — 20',
+        level: 'Master',
+        field: 'Testing',
+        award: {
+          place: '1st place',
+          label: 'Best test',
+          thesis: 'Gold thesis',
+          medal: 'gold',
+        },
+      },
+      {
+        period: '2014 — 18',
+        level: 'Bachelor',
+        field: 'Testing',
+        award: {
+          place: '2nd place',
+          label: 'Runner-up test',
+          thesis: 'Silver thesis',
+          medal: 'silver',
+        },
+      },
     ],
   },
-  awardsTitle: 'Test awards',
-  awards: [
-    {
-      place: '1st place',
-      label: 'Best test',
-      thesis: 'Gold thesis',
-      medal: 'gold',
-    },
-    {
-      place: '2nd place',
-      label: 'Runner-up test',
-      thesis: 'Silver thesis',
-      medal: 'silver',
-    },
-  ],
 }
 
 export const testProjects: Projects = {

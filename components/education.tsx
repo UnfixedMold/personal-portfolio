@@ -1,10 +1,11 @@
 import { SectionHeading } from '@/components/section-heading'
 import { cn } from 'cn'
-import { GraduationCap, Medal } from 'lucide-react'
+import { Medal } from 'lucide-react'
 import Image from 'next/image'
 import { SurfaceCard } from '@/components/surface-card'
 import type {
   Award,
+  Degree,
   Education as EducationContent,
 } from '@/lib/content/education'
 
@@ -17,31 +18,46 @@ const medals = {
   silver: 'from-silver to-silver-end text-silver-foreground',
 }
 
-function AwardRow({ award }: { award: Award }) {
+function AwardPanel({ award }: { award: Award }) {
   return (
-    <li className="flex items-start gap-4 border-t border-white/18 pt-5">
+    <div className="bg-muted/60 flex items-start gap-4 rounded-2xl p-4">
       <span
         aria-hidden
         className={cn(
-          'flex size-11 shrink-0 items-center justify-center rounded-full bg-linear-145 shadow-[inset_0_-3px_0_rgb(0_0_0/0.12),0_6px_16px_rgb(0_0_0/0.18)]',
+          'flex size-9 shrink-0 items-center justify-center rounded-full bg-linear-145 shadow-[inset_0_-3px_0_rgb(0_0_0/0.12),0_4px_10px_rgb(0_0_0/0.15)]',
           medals[award.medal]
         )}
       >
-        <Medal className="size-5.5" />
+        <Medal className="size-4.5" />
       </span>
-      <span className="flex flex-col gap-0.5">
-        <span className="text-[17px] font-extrabold">{award.place}</span>
-        <span className="text-sm opacity-90">{award.label}</span>
-        <span className="mt-2.5 border-l border-white/40 pl-3 text-sm opacity-85">
-          {award.thesis}
-        </span>
-      </span>
+      <div className="flex flex-col gap-0.5">
+        <p className="font-bold">{award.place}</p>
+        <p className="text-muted-foreground text-sm">{award.label}</p>
+        <p className="text-muted-foreground mt-1.5 text-sm">“{award.thesis}”</p>
+      </div>
+    </div>
+  )
+}
+
+function DegreeItem({ degree }: { degree: Degree }) {
+  return (
+    <li className="flex flex-col gap-4 py-5 last:pb-0">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h4 className="text-lg font-bold">{degree.level}</h4>
+          <p className="text-muted-foreground text-sm">{degree.field}</p>
+        </div>
+        <p className="text-primary pt-1 text-sm font-semibold whitespace-nowrap">
+          {degree.period}
+        </p>
+      </div>
+      <AwardPanel award={degree.award} />
     </li>
   )
 }
 
 export function Education({ education }: EducationProps) {
-  const { school, awards } = education
+  const { school } = education
 
   return (
     <div className="flex flex-col gap-4" aria-labelledby="education-title">
@@ -50,38 +66,19 @@ export function Education({ education }: EducationProps) {
         title={education.title}
         className="mb-5"
       />
-      <SurfaceCard className="gap-4 px-5 py-5 text-base">
-        <div className="flex items-center gap-4">
+      <SurfaceCard className="gap-0 px-6 py-6 text-base">
+        <div className="flex items-center gap-4 pb-5">
           <Image
             src={school.logo}
             alt={school.logoLabel}
             sizes="60px"
             className="size-15 shrink-0 object-contain"
           />
-          <h3 className="font-bold">{school.name}</h3>
+          <h3 className="text-lg font-bold">{school.name}</h3>
         </div>
-        <dl className="grid grid-cols-[90px_1fr] gap-x-4 gap-y-2">
+        <ul className="divide-y border-t">
           {school.degrees.map((degree) => (
-            <div key={degree.period} className="contents">
-              <dt className="text-primary text-sm font-semibold">
-                {degree.period}
-              </dt>
-              <dd className="text-muted-foreground">
-                <span className="whitespace-nowrap">{degree.level} ·</span>{' '}
-                <span className="whitespace-nowrap">{degree.field}</span>
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </SurfaceCard>
-      <SurfaceCard className="gradient-primary text-primary-foreground shadow-glow gap-3.5 border-0 px-5 py-5 text-base">
-        <h3 className="flex items-center gap-2.5 text-xs font-bold tracking-[0.12em] uppercase opacity-85">
-          <GraduationCap aria-hidden className="size-4.5" />
-          {education.awardsTitle}
-        </h3>
-        <ul className="flex flex-col gap-5">
-          {awards.map((award) => (
-            <AwardRow key={award.label} award={award} />
+            <DegreeItem key={degree.period} degree={degree} />
           ))}
         </ul>
       </SurfaceCard>
