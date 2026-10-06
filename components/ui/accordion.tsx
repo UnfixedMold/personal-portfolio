@@ -68,16 +68,21 @@ function AccordionContent({
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      className="data-open:animate-accordion-down data-closed:animate-accordion-up overflow-hidden text-sm"
+      forceMount
+      className="group/content text-sm"
       {...props}
     >
-      <div
-        className={cn(
-          '[&_a]:hover:text-foreground h-(--radix-accordion-content-height) pt-0 pb-4 [&_a]:underline [&_a]:underline-offset-3 [&_p:not(:last-child)]:mb-4',
-          className
-        )}
-      >
-        {children}
+      <div className="ease-smooth grid grid-rows-[0fr] transition-[grid-template-rows,visibility] duration-450 group-data-[state=closed]/content:invisible group-data-[state=open]/content:grid-rows-[1fr] motion-reduce:transition-none">
+        <div className="min-h-0 overflow-hidden">
+          <div
+            className={cn(
+              '[&_a]:hover:text-foreground pt-0 pb-4 [&_a]:underline [&_a]:underline-offset-3 [&_p:not(:last-child)]:mb-4',
+              className
+            )}
+          >
+            {children}
+          </div>
+        </div>
       </div>
     </AccordionPrimitive.Content>
   )

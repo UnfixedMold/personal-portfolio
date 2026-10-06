@@ -37,9 +37,9 @@ test('a visitor points at a job', async ({ homePage, experience }) => {
     await experience.movePointerAway()
   })
 
-  await test.step('Then that job stays open and the newest job stays collapsed', async () => {
-    await expect(experience.highlightsOf(hoveredRole)).toBeVisible()
-    await expect(experience.highlightsOf(newestRole)).toBeHidden()
+  await test.step('Then that job collapses and the newest job is open again', async () => {
+    await expect(experience.highlightsOf(hoveredRole)).toBeHidden()
+    await expect(experience.highlightsOf(newestRole)).toBeVisible()
   })
 })
 

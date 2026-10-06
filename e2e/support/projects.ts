@@ -4,7 +4,7 @@ export class Projects {
   constructor(private readonly page: Page) {}
 
   get region() {
-    return this.page.getByRole('region', { name: /personal projects/i })
+    return this.page.locator('#work')
   }
 
   card(title: string) {

@@ -6,7 +6,7 @@ export class ContactPage {
   constructor(private readonly page: Page) {}
 
   get section() {
-    return this.page.getByRole('region', { name: /have something to build/i })
+    return this.page.locator('#contact')
   }
 
   get emailLink() {

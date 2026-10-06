@@ -1,4 +1,4 @@
-<p align="center"><img src="app/icon.svg" alt="Logo" width="96"></p>
+<p align="center"><img src="assets/images/logo.svg" alt="Logo" width="200"></p>
 
 # Personal portfolio
 

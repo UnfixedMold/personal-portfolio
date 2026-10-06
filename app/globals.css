@@ -164,9 +164,4 @@
   html {
     @apply font-sans;
   }
-  [data-slot='accordion-content'] {
-    --tw-animation-duration: 450ms;
-    --tw-ease: var(--ease-smooth);
-    @apply motion-reduce:animate-none;
-  }
 }
