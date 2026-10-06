@@ -23,20 +23,24 @@ function isMouse(event: React.PointerEvent) {
 }
 
 export function JobAccordion({ jobs }: JobAccordionProps) {
-  const [open, setOpen] = useState(getJobKey(jobs[0]))
+  const [active, setActive] = useState<string>()
+  const open = active ?? getJobKey(jobs[0])
 
   return (
     <Accordion
       type="single"
       value={open}
-      onValueChange={(value) => value && setOpen(value)}
-      className="@container gap-3"
+      onValueChange={(value) => value && setActive(value)}
+      onPointerLeave={(event) => isMouse(event) && setActive(undefined)}
+      className="@container gap-3 md:h-[706px] lg:h-[649px] xl:h-[519px]"
     >
       {jobs.map((job) => (
         <AccordionItem
           key={getJobKey(job)}
           value={getJobKey(job)}
-          onPointerEnter={(event) => isMouse(event) && setOpen(getJobKey(job))}
+          onPointerEnter={(event) =>
+            isMouse(event) && setActive(getJobKey(job))
+          }
           className="bg-card/60 data-open:bg-card data-open:shadow-lift ease-smooth rounded-[18px] border px-6 transition-[background-color,box-shadow] duration-450"
         >
           <AccordionTrigger className="py-4 text-base font-normal hover:no-underline **:data-[slot=accordion-trigger-icon]:hidden">
@@ -50,7 +54,7 @@ export function JobAccordion({ jobs }: JobAccordionProps) {
               </span>
             </span>
           </AccordionTrigger>
-          <AccordionContent className="h-auto pb-5">
+          <AccordionContent className="pb-5">
             <ul className="text-muted-foreground flex list-disc flex-col gap-1.5 pl-4.5 leading-normal">
               {job.highlights.map((highlight) => (
                 <li key={highlight}>{highlight}</li>
