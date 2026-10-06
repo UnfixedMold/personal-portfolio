@@ -40,7 +40,7 @@ The home page SHALL show a section reachable at `#services`, titled for what the
 
 ### Requirement: The experience and education section shows the owner's history
 
-The home page SHALL show a section reachable at `#experience` with the owner's jobs, newest first, each with its role, period and organisation. The jobs SHALL work as an accordion: exactly one job is expanded at a time and shows its highlights and stack tags. The newest job SHALL be expanded by default. Pointing at a job or activating it SHALL expand it, and the last pointed job SHALL stay expanded after the pointer leaves. A keyboard user SHALL be able to expand any job. Next to the jobs it SHALL show the university with its logo and both degrees with their periods, and a thesis awards card with a medal, the place and the label for each award.
+The home page SHALL show a section reachable at `#experience` with the owner's jobs, newest first, each with its role, period and organisation. The jobs SHALL work as an accordion: exactly one job is expanded at a time and shows its highlights and stack tags. The newest job SHALL be expanded by default. Pointing at a job or activating it SHALL expand it. When a mouse pointer leaves the jobs, the newest job SHALL expand again. A keyboard user SHALL be able to expand any job. Next to the jobs it SHALL show the university with its logo and both degrees with their periods, and a thesis awards card with a medal, the place and the label for each award.
 
 #### Scenario: A visitor reads the experience
 
@@ -55,7 +55,7 @@ The home page SHALL show a section reachable at `#experience` with the owner's j
 #### Scenario: A visitor points at a job
 
 - **WHEN** a visitor points at a collapsed job and then moves the pointer away
-- **THEN** that job stays expanded and the newest job stays collapsed
+- **THEN** that job collapses and the newest job is expanded again
 
 #### Scenario: A keyboard user expands a job
 
