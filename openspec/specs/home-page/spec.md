@@ -40,7 +40,7 @@ The home page SHALL show a section reachable at `#services`, titled for what the
 
 ### Requirement: The experience and education section shows the owner's history
 
-The home page SHALL show a section reachable at `#experience` with the owner's jobs, newest first, each with its role, period and organisation. The jobs SHALL work as an accordion: exactly one job is expanded at a time and shows its highlights and stack tags. The newest job SHALL be expanded by default. Pointing at a job or activating it SHALL expand it. When a mouse pointer leaves the jobs, the newest job SHALL expand again. A keyboard user SHALL be able to expand any job. Next to the jobs it SHALL show the university with its logo and both degrees with their periods, and a thesis awards card with a medal, the place and the label for each award.
+The home page SHALL show a section reachable at `#experience` with the owner's jobs, newest first, each with its role, period and organisation. The jobs SHALL work as an accordion: exactly one job is expanded at a time and shows its highlights and stack tags. The newest job SHALL be expanded by default. Pointing at a job or activating it SHALL expand it. When a mouse pointer leaves the jobs, the newest job SHALL expand again. A keyboard user SHALL be able to expand any job. Next to the jobs it SHALL show one education card with the university logo and name, then each degree with its level, field and period, and under each degree its thesis award with a medal, the place, the label and the thesis title.
 
 #### Scenario: A visitor reads the experience
 
@@ -65,7 +65,7 @@ The home page SHALL show a section reachable at `#experience` with the owner's j
 #### Scenario: A visitor reads the education
 
 - **WHEN** a visitor reaches the education section
-- **THEN** they see the university logo and name, both degrees with their periods, and both awards with their places
+- **THEN** they see the university logo and name, and each degree with its period and its thesis award
 
 ### Requirement: The projects section links to the live side projects
 
