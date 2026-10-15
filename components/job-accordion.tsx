@@ -32,7 +32,7 @@ export function JobAccordion({ jobs }: JobAccordionProps) {
       value={open}
       onValueChange={(value) => value && setActive(value)}
       onPointerLeave={(event) => isMouse(event) && setActive(undefined)}
-      className="@container gap-3 md:h-[706px] lg:h-[649px] xl:h-auto"
+      className="@container gap-3"
     >
       {jobs.map((job) => (
         <AccordionItem

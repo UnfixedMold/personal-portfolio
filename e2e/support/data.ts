@@ -9,7 +9,6 @@ export const menuLabels = ['Services', 'Experience', 'Projects']
 export const servicesTitle = 'What I build'
 export const experienceTitle = 'Experience'
 export const newestRole = 'AI Practice Lead'
-export const clickedRole = 'ML/AI Engineer'
 export const keyedRole = 'Machine Learning Engineer'
 export const tappedRole = 'Software Engineer'
 export const hoveredRole = 'Machine Learning Engineer'

@@ -11,13 +11,6 @@ export type Experience = {
   jobs: readonly Job[]
 }
 
-// TODO: replace the placeholder highlights with the owner's real ones.
-const placeholderHighlights = [
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  'Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-]
-
 export const experience: Experience = {
   title: 'Experience',
   jobs: [
@@ -25,28 +18,45 @@ export const experience: Experience = {
       period: '2025 — now',
       role: 'AI Practice Lead',
       organisation: 'SolutionLab',
-      highlights: placeholderHighlights,
-      tags: ['LLMs', 'LangChain', 'FastAPI', 'Tech leadership'],
+      highlights: [
+        'Built an internal LLM tool that migrates content from outdated HTML sites into a new Umbraco content structure.',
+        'Help shape and present the company’s spec-driven development practices and AI tech stack.',
+        'Help develop Umbraco CMS sites for clients.',
+        'Pitch AI/ML features for clients’ existing projects to help them grow sales.',
+      ],
+      tags: ['LLMs', 'LangChain', 'Umbraco', 'SDD'],
     },
     {
-      period: '2025',
-      role: 'ML/AI Engineer',
+      period: '2025 — now',
+      role: 'AI/ML Engineer',
       organisation: 'Freelance',
-      highlights: placeholderHighlights,
+      highlights: [
+        'Develop AI/NLP pipelines for Zubrus, an early-stage Lithuanian edtech startup.',
+        'Build an MVP for a calorie estimation platform with Vision Transformers, LangChain and FastAPI.',
+      ],
       tags: ['NLP', 'Vision Transformers', 'LangChain', 'FastAPI'],
     },
     {
       period: '2021 — 2025',
       role: 'Machine Learning Engineer',
       organisation: 'AAI Labs',
-      highlights: placeholderHighlights,
+      highlights: [
+        'Led teams of 3 to 4 people on short-term research projects.',
+        'Built time series forecasting and image recognition models in Python with scikit-learn, pandas and PyTorch.',
+        'Built Streamlit and Next.js apps for model demos and government systems.',
+        'Packaged models and apps with Docker and deployed them on Azure.',
+      ],
       tags: ['PyTorch', 'scikit-learn', 'Docker', 'Azure'],
     },
     {
       period: '2017 — 2021',
       role: 'Software Engineer',
       organisation: 'SolutionLab',
-      highlights: placeholderHighlights,
+      highlights: [
+        'Developed web and mobile apps using React and React Native.',
+        'Built and maintained APIs with PHP (Laravel) and C# (ASP.NET, Umbraco).',
+        'Worked on a brand and retail collaboration platform, internal tooling for architecture project management and B2B systems.',
+      ],
       tags: ['React', 'React Native', 'Laravel', 'ASP.NET'],
     },
   ],

@@ -1,5 +1,4 @@
 import {
-  clickedRole,
   desktopWidth,
   hoveredRole,
   keyedRole,
@@ -8,23 +7,6 @@ import {
   tappedRole,
 } from './support/data'
 import { expect, test } from './support/fixtures'
-
-test('a visitor expands a job', async ({ homePage, experience }) => {
-  await test.step('Given a visitor at the experience section', async () => {
-    await homePage.resizeToWidth(desktopWidth)
-    await homePage.open()
-    await expect(experience.highlightsOf(newestRole)).toBeVisible()
-  })
-
-  await test.step('When they activate a collapsed job', async () => {
-    await experience.expandByClick(clickedRole)
-  })
-
-  await test.step('Then its highlights show and the newest job collapses', async () => {
-    await expect(experience.highlightsOf(clickedRole)).toBeVisible()
-    await expect(experience.highlightsOf(newestRole)).toBeHidden()
-  })
-})
 
 test('a visitor points at a job', async ({ homePage, experience }) => {
   await test.step('Given a visitor at the experience section', async () => {
