@@ -81,31 +81,34 @@ export const testImage: StaticImageData = {
 
 export const testEducation: Education = {
   title: 'Where I studied',
+  photoHint: 'See it',
   school: {
     name: 'Test University',
     logo: testImage,
     logoLabel: 'Test University logo',
     degrees: [
       {
-        period: '2018 — 20',
+        year: '2020',
         level: 'Master',
         field: 'Testing',
         award: {
           place: '1st place',
           label: 'Best test',
-          thesis: 'Gold thesis',
           medal: 'gold',
+          photo: testImage,
+          photoLabel: 'Gold award photo',
         },
       },
       {
-        period: '2014 — 18',
+        year: '2018',
         level: 'Bachelor',
         field: 'Testing',
         award: {
           place: '2nd place',
           label: 'Runner-up test',
-          thesis: 'Silver thesis',
           medal: 'silver',
+          photo: testImage,
+          photoLabel: 'Silver award photo',
         },
       },
     ],
