@@ -1,6 +1,6 @@
 import type { StaticImageData } from 'next/image'
-import aitrafScreenshot from '@/assets/images/aitraf.png'
-import h2bcStoreScreenshot from '@/assets/images/h2bc-store.png'
+import aitrafScreenshot from '@/assets/images/projects/aitraf.png'
+import h2bcStoreScreenshot from '@/assets/images/projects/h2bc-store.png'
 
 export type Project = {
   title: string
@@ -27,7 +27,7 @@ export const projects: Projects = {
       title: 'h2bc store',
       tags: ['Web app'],
       description:
-        'The online store for my own small clothing brand, built completely custom instead of on Shopify or any other e-commerce platform. It runs on Medusa.js, with a custom frontend, payments, admin panel and CI/CD pipelines.',
+        'The online store for my own small clothing brand, launching soon. Built completely custom instead of on Shopify or any other e-commerce platform. It runs on Medusa.js, with a custom frontend, payments, admin panel and CI/CD pipelines.',
       url: 'https://dev.h2bcweb.com/',
       domain: 'dev.h2bcweb.com',
       image: h2bcStoreScreenshot,

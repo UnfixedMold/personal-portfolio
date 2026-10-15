@@ -1,7 +1,8 @@
 import { SectionHeading } from '@/components/section-heading'
 import { cn } from 'cn'
-import { Medal } from 'lucide-react'
+import { ImageIcon, Medal } from 'lucide-react'
 import Image from 'next/image'
+import { AwardDialog } from '@/components/award-dialog'
 import { SurfaceCard } from '@/components/surface-card'
 import type {
   Award,
@@ -18,40 +19,45 @@ const medals = {
   silver: 'from-silver to-silver-end text-silver-foreground',
 }
 
-function AwardPanel({ award }: { award: Award }) {
+function AwardSummary({ award, hint }: { award: Award; hint: string }) {
   return (
-    <div className="bg-muted/60 flex items-start gap-4 rounded-2xl p-4">
+    <>
       <span
         aria-hidden
         className={cn(
-          'flex size-9 shrink-0 items-center justify-center rounded-full bg-linear-145 shadow-[inset_0_-3px_0_rgb(0_0_0/0.12),0_4px_10px_rgb(0_0_0/0.15)]',
+          'flex size-9 items-center justify-center self-start rounded-full bg-linear-145 shadow-[inset_0_-3px_0_rgb(0_0_0/0.12),0_4px_10px_rgb(0_0_0/0.15)]',
           medals[award.medal]
         )}
       >
         <Medal className="size-4.5" />
       </span>
-      <div className="flex flex-col gap-0.5">
-        <p className="font-bold">{award.place}</p>
-        <p className="text-muted-foreground text-sm">{award.label}</p>
-        <p className="text-muted-foreground mt-1.5 text-sm">“{award.thesis}”</p>
-      </div>
-    </div>
+      <span className="flex flex-col gap-0.5">
+        <span className="font-bold">{award.place}</span>
+        <span className="text-muted-foreground text-sm">{award.label}</span>
+      </span>
+      <span className="text-muted-foreground col-start-2 flex items-center gap-1.5 text-xs font-semibold whitespace-nowrap @md:col-start-3 @md:row-start-1 @md:self-center">
+        <ImageIcon className="size-3.5" />
+        {hint}
+      </span>
+    </>
   )
 }
 
-function DegreeItem({ degree }: { degree: Degree }) {
+function DegreeItem({ degree, hint }: { degree: Degree; hint: string }) {
   return (
-    <li className="flex flex-col gap-4 py-5 last:pb-0">
+    <li className="@container flex flex-col gap-4 py-5 last:pb-0">
       <div className="flex items-start justify-between gap-4">
         <div>
           <h4 className="text-lg font-bold">{degree.level}</h4>
           <p className="text-muted-foreground text-sm">{degree.field}</p>
         </div>
         <p className="text-primary pt-1 text-sm font-semibold whitespace-nowrap">
-          {degree.period}
+          {degree.year}
         </p>
       </div>
-      <AwardPanel award={degree.award} />
+      <AwardDialog award={degree.award}>
+        <AwardSummary award={degree.award} hint={hint} />
+      </AwardDialog>
     </li>
   )
 }
@@ -78,7 +84,11 @@ export function Education({ education }: EducationProps) {
         </div>
         <ul className="divide-y border-t">
           {school.degrees.map((degree) => (
-            <DegreeItem key={degree.period} degree={degree} />
+            <DegreeItem
+              key={degree.year}
+              degree={degree}
+              hint={education.photoHint}
+            />
           ))}
         </ul>
       </SurfaceCard>

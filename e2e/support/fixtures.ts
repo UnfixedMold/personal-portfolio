@@ -2,6 +2,7 @@ import { test as base } from '@playwright/test'
 import { Accessibility } from './accessibility'
 import { ContactPage } from './contact-page'
 import { Crawler } from './crawler'
+import { Education } from './education'
 import { Experience } from './experience'
 import { Header } from './header'
 import { Hero } from './hero'
@@ -17,6 +18,7 @@ type Fixtures = {
   hero: Hero
   sections: Sections
   experience: Experience
+  education: Education
   projects: Projects
   contactPage: ContactPage
   mailbox: Mailbox
@@ -39,6 +41,9 @@ export const test = base.extend<Fixtures>({
   },
   experience: async ({ page }, use) => {
     await use(new Experience(page))
+  },
+  education: async ({ page }, use) => {
+    await use(new Education(page))
   },
   projects: async ({ page }, use) => {
     await use(new Projects(page))

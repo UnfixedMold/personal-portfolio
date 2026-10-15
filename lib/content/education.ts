@@ -1,15 +1,18 @@
 import type { StaticImageData } from 'next/image'
-import vilniusUniversityLogo from '@/assets/images/vilnius-university.png'
+import bachelorsThesisPhoto from '@/assets/images/education/bachelors-thesis.webp'
+import mastersThesisPhoto from '@/assets/images/education/masters-thesis.webp'
+import vilniusUniversityLogo from '@/assets/images/education/vilnius-university.png'
 
 export type Award = {
   place: string
   label: string
-  thesis: string
   medal: 'gold' | 'silver'
+  photo: StaticImageData
+  photoLabel: string
 }
 
 export type Degree = {
-  period: string
+  year: string
   level: string
   field: string
   award: Award
@@ -17,6 +20,7 @@ export type Degree = {
 
 export type Education = {
   title: string
+  photoHint: string
   school: {
     name: string
     logo: StaticImageData
@@ -27,32 +31,36 @@ export type Education = {
 
 export const education: Education = {
   title: 'Education',
+  photoHint: 'View photo',
   school: {
     name: 'Vilnius University',
     logo: vilniusUniversityLogo,
     logoLabel: 'Vilnius University logo',
     degrees: [
       {
-        period: '2022 — 25',
+        year: '2026',
         level: 'Master’s degree',
         field: 'Computer Science',
         award: {
           place: '1st place',
           label: 'Best master’s thesis in course',
-          thesis:
-            'Aggressive inline trick classification & performance feedback',
           medal: 'gold',
+          photo: mastersThesisPhoto,
+          photoLabel:
+            'IEEE Lithuania Section certificate naming the master’s thesis the best in course',
         },
       },
       {
-        period: '2018 — 22',
+        year: '2022',
         level: 'Bachelor’s degree',
         field: 'Computer Science',
         award: {
           place: '2nd place',
           label: 'Best bachelor’s thesis in “Innovations for Life” category',
-          thesis: 'Finding Hamiltonian circuits using quantum calculations',
           medal: 'silver',
+          photo: bachelorsThesisPhoto,
+          photoLabel:
+            'Vilnius University Tech Hub certificate awarding the bachelor’s thesis 2nd place in the Innovations for Life category',
         },
       },
     ],

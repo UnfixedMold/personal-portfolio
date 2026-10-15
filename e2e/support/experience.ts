@@ -15,10 +15,6 @@ export class Experience {
     return this.section.getByRole('region', { name: new RegExp(role) })
   }
 
-  async expandByClick(role: string) {
-    await this.job(role).click()
-  }
-
   async expandByTap(role: string) {
     await this.job(role).tap()
   }
